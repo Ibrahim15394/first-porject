@@ -1,0 +1,232 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class MessengerScreen extends StatelessWidget {
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+    appBar: AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0.0,
+      titleSpacing: 20,
+      title: Row(
+        children: [
+          CircleAvatar(
+            radius: 15.0,
+            backgroundImage: AssetImage('assets/images/ibrahim.jpg'),
+            ),
+         SizedBox(
+           width: 20,
+         ),
+         Text(
+           'Chats',
+           style: TextStyle(
+             fontSize: 30,
+             color: Colors.black,
+           ),
+         ),
+        ],
+      ),
+      actions: [
+        IconButton(onPressed: (){},
+          icon: CircleAvatar(
+            radius: 15.0,
+            backgroundColor: Colors.blue,
+              child: Icon(
+                  Icons.camera_alt,
+                size: 16.0,
+                color: Colors.white,
+              ),
+          ),
+        ),
+        IconButton(onPressed: (){},
+          icon: CircleAvatar(
+            child: Icon(
+                Icons.edit,
+              size: 16.0,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+      ),
+      body:Padding(
+        padding: const EdgeInsets.all(20.0),
+        child:
+           SingleChildScrollView(
+             child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+
+          children: [
+              Container(
+                padding: EdgeInsets.all(5.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.grey[300],
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.search,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      'search',
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                  height: 20.0
+              ),
+              Container(
+                height: 110.0,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => buildStoryItem(),
+                    separatorBuilder: (context, index) => SizedBox(width: 15,),
+                    itemCount: 10,
+                ),
+              ),
+              SizedBox(
+               height: 20,
+              ),
+              ListView.separated(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap:true ,
+                  itemBuilder: (context, index) => buildChatItem(),
+                  separatorBuilder:(context, index) => SizedBox(height: 15.0,) ,
+                  itemCount: 20
+              ),
+         ]
+        ),
+           ),
+      ) ,
+    );
+  }
+
+  // build item
+  // build list
+  // add item to list
+
+
+  //arrow function
+
+ Widget buildStoryItem() => Container(
+   width: 60,
+   child: Column(
+     crossAxisAlignment:CrossAxisAlignment.start ,
+     children: [
+       Stack(
+         alignment: AlignmentDirectional.bottomEnd,
+         children: [
+           CircleAvatar(
+             radius: 30,
+             backgroundImage: AssetImage('assets/images/ibrahim.jpg'),
+           ),
+           Padding(
+             padding: const EdgeInsetsDirectional.only(
+               bottom: 5,
+               end: 5,
+             ),
+             child: CircleAvatar(
+               radius: 5,
+               backgroundColor: Colors.red,
+             ),
+           ),
+         ],
+       ),
+       SizedBox(
+         height: 10,
+       ),
+       Text(
+         'ibrahim morsy ibrahim morsy',
+         style: TextStyle(
+           fontWeight: FontWeight.w800,
+         ),
+         maxLines: 2,
+         overflow: TextOverflow.ellipsis,
+       ),
+
+
+
+     ],
+   ),
+ );
+ Widget buildChatItem() => Row(
+   children: [
+     Stack(
+       alignment: AlignmentDirectional.bottomEnd,
+       children: [
+         CircleAvatar(
+           radius: 30,
+           backgroundImage: AssetImage('assets/images/ibrahim.jpg'),
+         ),
+         Padding(
+           padding: const EdgeInsetsDirectional.only(
+             bottom: 5,
+             end: 5,
+           ),
+           child: CircleAvatar(
+             radius: 5,
+             backgroundColor: Colors.red,
+           ),
+         ),
+       ],
+     ),
+     SizedBox(
+       width: 15,
+     ),
+     Expanded(
+       child: Column(
+         crossAxisAlignment: CrossAxisAlignment.start,
+         children: [
+           Text(
+             'ibrahim morsy ibrahim morsy ',
+             style: TextStyle(
+               fontSize: 16,
+               fontWeight: FontWeight.bold,
+             ),
+           ),
+           SizedBox(
+             height: 7,
+           ),
+           Row(
+             children: [
+               Expanded(
+                 child: Text(
+                   'hello my best friend hello my best friend hello my best friend hello my best friend',
+                   maxLines: 2,
+                   overflow: TextOverflow.ellipsis,
+                 ),
+               ),
+               Padding(
+                 padding: const EdgeInsets.symmetric(
+                   horizontal: 10,
+                 ),
+                 child: CircleAvatar(
+                   radius: 3,
+                   backgroundColor: Colors.black,
+                 ),
+               ),
+               Text(
+                 '02:00 pm',
+               ),
+             ],
+           ),
+
+         ],
+       ),
+     ),
+
+   ],
+ );
+}
+
+
