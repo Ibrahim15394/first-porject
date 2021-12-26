@@ -1,83 +1,83 @@
-import 'package:first_project/modules/counter/cubit/cubit.dart';
-import 'package:first_project/modules/counter/cubit/states.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+// stateless contain one class provide widet
 
-class CounterScreen extends StatelessWidget {
-  const CounterScreen({Key? key}) : super(key: key);
- final int counter = 1;
+
+//stateful contain classes
+//1 first class provide widget
+//2 second class provide state from this widget
+
+
+class CounterScreen extends StatefulWidget {
+  @override
+  _CounterScreenState createState() => _CounterScreenState();
+}
+
+class _CounterScreenState extends State<CounterScreen> {
+  int counter = 1;
+  @override
+  void initState() {
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (BuildContext context) => CounterCubit(),
-      child:BlocConsumer< CounterCubit, CounterStates >(
-          listener: (context, state)
-          {
-            if(state is CounterMinusState)
-              {
-                print('minus state${state.counter}');
-              }
-            if(state is CounterPlusState)
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Counter',
+        ),
+      ),
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(onPressed: ()
             {
-              print('plus state ${state.counter}');
-            }
-          },
-          builder: (context, state)
-          {
-            return Scaffold(
-              appBar: AppBar(
-                title: const Text(
-                  'Counter',
-                ),
-              ),
-              body: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(onPressed: ()
-                    {
-                      CounterCubit.get(context).minus();
-                    },
-                      child: const Text(
-                        'Minus',
-                        style: TextStyle(
-                          fontSize: 30.0,
-                        ),
+              setState(() {
 
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0
-                      ),
-                      child: Text(
-                        '${CounterCubit. get(context).counter}',
-                        style: const TextStyle(
-                          fontSize:50.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    TextButton(onPressed: ()
-                    {
-                      CounterCubit.get(context).plus();
-                    },
-                      child: const Text(
-                        'Plus',
-                        style: TextStyle(
-                          fontSize: 30.0,
-                        ),
-                      ),
-                    ),
-                  ],
+                counter--;
+                print(counter);
+              });
+            },
+              child: Text(
+                'Minus',
+                style: TextStyle(
+                  fontSize: 30.0,
+                ),
+
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0
+              ),
+              child: Text(
+                '$counter',
+                style: TextStyle(
+                  fontSize:50.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            );
-          },
-      ) ,
+            ),
+            TextButton(onPressed: ()
+            {
+              setState(() {
+
+                counter++;
+                print(counter);
+              });
+            },
+              child: Text(
+                  'Plus',
+                style: TextStyle(
+                  fontSize: 30.0,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
-
-
-

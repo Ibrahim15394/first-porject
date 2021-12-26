@@ -1,17 +1,14 @@
-import 'package:first_project/models/users.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-
-
+import 'package:untitled/models/users/users.dart';
 
 class UsersScreen extends StatelessWidget {
- final List< UserModel > users = [
-     UserModel(
-      id: 1,
-      name: 'ibrahim',
-      phone: '01099988617',
-    ),
+  List< UserModel > users = [
+    UserModel(
+       id: 1,
+       name: 'ibrahim',
+       phone: '01099988617',
+   ),
     UserModel(
       id: 2,
       name: 'mostafa',
@@ -69,29 +66,27 @@ class UsersScreen extends StatelessWidget {
     ),
   ];
 
-  UsersScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
             'Users'
         ),
       ),
       body:ListView.separated(
-        itemBuilder:(context, index) =>buildUsersItem(users[index]),
-        separatorBuilder: (context, index) => Padding(
-          padding: const EdgeInsetsDirectional.only(
+          itemBuilder:(context, index) =>buildUsersItem(users[index]),
+          separatorBuilder: (context, index) => Padding(
+            padding: const EdgeInsetsDirectional.only(
               start: 35.0
+            ),
+            child: Container(
+              width: double.infinity,
+              height: 1.0,
+              color: Colors.grey[300],
+            ),
           ),
-          child: Container(
-            width: double.infinity,
-            height: 1.0,
-            color: Colors.grey[300],
-          ),
-        ),
-        itemCount: users.length,
+          itemCount: users.length,
       ),
     );
   }
@@ -103,12 +98,12 @@ class UsersScreen extends StatelessWidget {
           radius: 30,
           child: Text(
             '${user.id}',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 40.0,
             ),
           ),
         ),
-        const SizedBox(
+        SizedBox(
           width: 20,
         ),
         Column(
@@ -116,18 +111,18 @@ class UsersScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-            ' ${user.name}',
-              style: const TextStyle(
+             '${user.name}',
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0,
               ),
             ),
-            const SizedBox(
+            SizedBox(
               height: 5.0,
             ),
             Text(
-            ' ${user.phone}',
-              style: const TextStyle(
+              '${user.phone}',
+              style: TextStyle(
                 fontSize: 15.0,
                 color: Colors.grey,
               ),
