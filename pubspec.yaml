@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0-116.0"
+  sdk: ">=2.15.0-116.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -41,7 +41,8 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   dio: ^4.0.4
   hexcolor: ^2.0.5
-
+  shared_preferences: ^2.0.11
+  webview_flutter: ^2.0.10
 
 
 dev_dependencies:

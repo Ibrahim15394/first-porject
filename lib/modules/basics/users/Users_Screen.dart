@@ -1,8 +1,16 @@
-import 'package:flutter/cupertino.dart';
+import 'package:first_project/models/users/users.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/models/users/users.dart';
 
-class UsersScreen extends StatelessWidget {
+
+class UsersScreen extends StatefulWidget {
+
+  const UsersScreen({Key? key}) : super(key: key);
+
+  @override
+  State<UsersScreen> createState() => _UsersScreenState();
+}
+
+class _UsersScreenState extends State<UsersScreen> {
   List< UserModel > users = [
     UserModel(
        id: 1,
@@ -70,7 +78,7 @@ class UsersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
             'Users'
         ),
       ),
@@ -90,6 +98,7 @@ class UsersScreen extends StatelessWidget {
       ),
     );
   }
+
   Widget buildUsersItem(UserModel user) => Padding(
     padding: const EdgeInsets.all(20.0),
     child: Row(
@@ -98,12 +107,12 @@ class UsersScreen extends StatelessWidget {
           radius: 30,
           child: Text(
             '${user.id}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 40.0,
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
         Column(
@@ -111,18 +120,18 @@ class UsersScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-             '${user.name}',
-              style: TextStyle(
+           ' ${user.name}',
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5.0,
             ),
             Text(
-              '${user.phone}',
-              style: TextStyle(
+             ' ${user.phone}',
+              style: const TextStyle(
                 fontSize: 15.0,
                 color: Colors.grey,
               ),

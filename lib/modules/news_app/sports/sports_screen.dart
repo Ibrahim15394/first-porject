@@ -11,6 +11,7 @@ class SportsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    print ('hello ');
 
     return BlocConsumer<NewsCubit,NewsStates>(
       listener: (context, state){},
@@ -18,17 +19,7 @@ class SportsScreen extends StatelessWidget {
       {
         var list = NewsCubit.get(context).sports;
 
-        return ConditionalBuilder(
-          condition: list.isNotEmpty,
-          builder: (context) =>ListView.separated(
-            physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) => buildArticleItem(context,list[index]),
-            separatorBuilder: (context, index) => myDivider(),
-            itemCount: list.length,
-          ),
-          fallback: (context) => const Center(child: CircularProgressIndicator()),
-
-        );
+        return articleBuilder(context, list);
       },
     );
   }

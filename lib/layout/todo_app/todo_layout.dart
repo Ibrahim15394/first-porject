@@ -1,18 +1,14 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:first_project/modules/archived_tasks/archived_screen.dart';
-import 'package:first_project/modules/done_tasks/done_screen.dart';
-import 'package:first_project/modules/new_tasks/new_screen.dart';
 import 'package:first_project/shared/components/components.dart';
 import 'package:first_project/shared/components/components2.dart';
 import 'package:first_project/shared/components/constants.dart';
 import 'package:first_project/shared/cubit/cubit.dart';
 import 'package:first_project/shared/cubit/states.dart';
-import 'package:first_project/shared/cubit/states.dart';
-import 'package:first_project/shared/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:sqflite/sqflite.dart';
+
 
 class HomeLayout extends StatelessWidget {
 

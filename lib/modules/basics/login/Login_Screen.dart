@@ -1,8 +1,11 @@
-import 'package:flutter/cupertino.dart';
+
+import 'package:first_project/shared/components/components.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/shared/components/components.dart';
+
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -28,14 +31,14 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Login",
                     style: TextStyle(
                       fontSize: 40.0,
                       fontWeight:FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                       height: 20.0,
                   ),
                   TextFormField(
@@ -55,14 +58,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                       return null;
                     },
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       prefixIcon:Icon(Icons.email_sharp),
                       labelText: "Email Address",
                       border: OutlineInputBorder(),
                     ),
 
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20.0,
                   ),
                   TextFormField(
@@ -83,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         }
                       return null;
                     },
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       prefixIcon:Icon(Icons.lock),
                       suffixIcon: Icon(Icons.remove_red_eye),
                       labelText: "Password",
@@ -91,11 +94,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
 
                   ),
-                  SizedBox(
+                  const SizedBox(
                 height: 20.0,
                 ),
-                  defaultButton(
-                    text: 'login',
+                  DefaultButton(
+                     'login',
                     background: Colors.blue,
                     width: double.infinity,
                     function:()
@@ -108,17 +111,17 @@ class _LoginScreenState extends State<LoginScreen> {
                      }
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15.0,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Don\'t have an account?"
                       ),
                       TextButton(onPressed: (){},
-                          child:Text("Register Now"),
+                          child:const Text('Register Now',),
                       ),
                     ],
                   ),

@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:first_project/modules/archived_tasks/archived_screen.dart';
-import 'package:first_project/modules/done_tasks/done_screen.dart';
-import 'package:first_project/modules/new_tasks/new_screen.dart';
+import 'package:first_project/modules/todo_app/archived_tasks/archived_screen.dart';
+import 'package:first_project/modules/todo_app/done_tasks/done_screen.dart';
+import 'package:first_project/modules/todo_app/new_tasks/new_screen.dart';
 import 'package:first_project/shared/cubit/states.dart';
+import 'package:first_project/shared/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sqflite/sqflite.dart';
@@ -139,10 +140,30 @@ class AppCubit extends Cubit<AppStates>{
   void changeBottomSheetState({
   required bool isShow ,
   required IconData icon,
-})
-  {
+}) {
     isBottomSheetShown = isShow;
     fabIcon = icon;
     emit(AppChangeBottomSheetState());
   }
+
+    bool isDark = false;
+
+    void changeAppMode({bool? fromShared})
+    {
+      if(fromShared != null)
+        {
+          isDark = fromShared;
+          emit(ChangeAppModeState());
+        }else
+          {
+            isDark = !isDark;
+            CacheHelper.putBoolean(key:'isDark', value:isDark).then((value)
+            {
+              emit(ChangeAppModeState());
+            });
+          }
+
+    }
+
+
 }

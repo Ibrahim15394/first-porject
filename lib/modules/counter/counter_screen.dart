@@ -24,7 +24,7 @@ class _CounterScreenState extends State<CounterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Counter',
         ),
       ),
@@ -40,7 +40,7 @@ class _CounterScreenState extends State<CounterScreen> {
                 print(counter);
               });
             },
-              child: Text(
+              child: const Text(
                 'Minus',
                 style: TextStyle(
                   fontSize: 30.0,
@@ -54,7 +54,7 @@ class _CounterScreenState extends State<CounterScreen> {
               ),
               child: Text(
                 '$counter',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize:50.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -68,7 +68,7 @@ class _CounterScreenState extends State<CounterScreen> {
                 print(counter);
               });
             },
-              child: Text(
+              child: const Text(
                   'Plus',
                 style: TextStyle(
                   fontSize: 30.0,

@@ -83,7 +83,7 @@ class DefaultFormField extends StatelessWidget {
       decoration:  InputDecoration(
         prefixIcon:Icon(prefix) ,
         suffixIcon: Icon(suffix),
-        labelText: "label",
+        labelText: label,
         border: const OutlineInputBorder(),
 
       ),

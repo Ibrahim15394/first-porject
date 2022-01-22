@@ -1,10 +1,11 @@
 import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
+import 'package:first_project/modules/bmii/bmi_result/bmi_result_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/modules/bmi%20result/bmi_%20result_screen.dart';
+
 
 class BmiScreen extends StatefulWidget {
+  const BmiScreen({Key? key}) : super(key: key);
+
 
   @override
   _BmiScreenState createState() => _BmiScreenState();
@@ -20,7 +21,7 @@ class _BmiScreenState extends State<BmiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'BMI Calculator'
         ),
       ),
@@ -46,7 +47,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             color: isMale ? Colors.blue : Colors.grey[400],
                           ),
                           child: Column(
-                            children: [
+                            children: const [
                               Image(
                                 image:AssetImage('assets/images/male.png'),
                                 height: 90.0,
@@ -67,7 +68,7 @@ class _BmiScreenState extends State<BmiScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20.0,
                     ),
                     Expanded(
@@ -85,7 +86,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             color: !isMale ? Colors.blue : Colors.grey[400],
                           ),
                           child: Column(
-                            children: [
+                            children: const [
                               Image(
                                 image:AssetImage('assets/images/female.png'),
                                 height: 90.0,
@@ -124,14 +125,14 @@ class _BmiScreenState extends State<BmiScreen> {
                   child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'HEIGHT',
                         style: TextStyle(
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       Row(
@@ -141,15 +142,15 @@ class _BmiScreenState extends State<BmiScreen> {
                         children: [
                           Text(
                             '${height.round()}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 40.0,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5.0,
                           ),
-                          Text(
+                          const Text(
                             'CM',
                             style: TextStyle(
                               fontSize: 20.0,
@@ -189,7 +190,7 @@ class _BmiScreenState extends State<BmiScreen> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            const Text(
                              'WEIGHT',
                              style: TextStyle(
                                fontWeight: FontWeight.bold,
@@ -198,7 +199,7 @@ class _BmiScreenState extends State<BmiScreen> {
                            ),
                             Text(
                               '$weight',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30.0,
                               ),
@@ -215,7 +216,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                     },
                                   heroTag: weight--,
                                   mini: true,
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.remove,
                                     ),
                                     ),
@@ -228,7 +229,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                   },
                                   heroTag: weight++,
                                   mini: true,
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.add,
                                   ),
                                 ),
@@ -239,7 +240,7 @@ class _BmiScreenState extends State<BmiScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Expanded(
@@ -251,7 +252,7 @@ class _BmiScreenState extends State<BmiScreen> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            const Text(
                               'AGE',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -260,7 +261,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             ),
                             Text(
                               '$age',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30.0,
                               ),
@@ -277,7 +278,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                   },
                                   heroTag: age--,
                                   mini: true,
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.remove,
                                   ),
                                 ),
@@ -290,7 +291,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                   },
                                   heroTag: age++,
                                   mini: true,
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.add,
                                   ),
                                 ),
@@ -327,7 +328,7 @@ class _BmiScreenState extends State<BmiScreen> {
                      ),
                   );
                 },
-              child: Text(
+              child: const Text(
                 'CALCULATE',
                 style: TextStyle(
                   fontSize: 20.0,
