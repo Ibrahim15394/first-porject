@@ -26,9 +26,10 @@ Widget defaultFormField({
    {
      onChange;
    },
-  validator: (value) {
+  validator: (value)
+  {
     validate;
- },
+  },
   decoration: InputDecoration(
   prefixIcon: Icon(prefix,),
   suffixIcon: Icon(suffix,),
@@ -238,3 +239,7 @@ Widget articleBuilder(context, list,{isSearch = false}) => ConditionalBuilder(
   fallback: (context) => isSearch ? Container() : const Center(child: CircularProgressIndicator()),
 
 );
+void navigateAndFinish(context, widget) =>
+    Navigator.pushAndRemoveUntil(
+        context, MaterialPageRoute(builder: (context) => widget),
+            (route) => false);

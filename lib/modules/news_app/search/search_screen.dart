@@ -17,32 +17,32 @@ class SearchScreen extends StatelessWidget {
     return BlocConsumer<NewsCubit,NewsStates>(
       listener: (context,state){},
       builder: (context,state){
-
         var list = NewsCubit.get(context).search;
-
         return  Scaffold(
           appBar: AppBar(),
           body: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: defaultFormField(
+                child: TextFormField(
                   controller: searchController,
-                  type: TextInputType.text,
-                  validate: (String value)
+                  keyboardType: TextInputType.text,
+                  validator: (value)
                   {
-                    if(value.isEmpty)
+                    if(value!.isEmpty)
                     {
                       return 'search must not is empty';
                     }
                     return null;
                   },
-                  onChange: (value)
+                  onChanged: (value)
                   {
                     NewsCubit.get(context).getSearch(value);
                   },
-                  label:'search',
-                  prefix: Icons.search,
+                  decoration: const InputDecoration(
+                   label: Text('search'),
+                    prefixIcon: Icon(Icons.search_outlined),
+                  ),
                 ),
               ),
               Expanded(
@@ -52,7 +52,6 @@ class SearchScreen extends StatelessWidget {
           ),
         );
       },
-
     );
   }
 }
